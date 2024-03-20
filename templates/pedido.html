@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Pedido</title>
+</head>
+<body>
+    <h1>Detalhes do Pedido</h1>
+    <p>ID do Pedido: {{ order.id }}</p>
+    <p>Nome do Cliente: {{ order.Name }}</p>
+    <p>Endereço do Cliente: {{ order.address }}</p>
+    <p>Nome do Produto: {{ order.orderName }}</p>
+    <p>Preço do Produto: R$ {{ order.orderPrice }}</p>
+    <p>Status da Ordem: {{ order.orderStatus }}</p>
+    <p>Data da Ordem: {{ order.orderDate }}</p>
+
+    {% if user.isSeller %}
+    <form action="{{ url_for('order_details', order_id=order.id) }}" method="post">
+        <label for="new_status">Novo Status:</label>
+        <input type="text" id="new_status" name="new_status" required>
+        <button type="submit">Atualizar Status</button>
+    </form>
+    {% endif %}
+
+    <a href="{{ url_for('pedidos') }}">Voltar para Pedidos</a>
+</body>
+</html>

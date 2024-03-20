@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='pedidos.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header2">
+        <h3>myEcommerce</h3>
+        {% if user.isSeller %}
+            <a href="/home/addproducts"><button class="login2">Adicionar produto</button></a>
+        {% else %}
+        {% endif %}
+    </div>
+    <div class="orders">
+        <ul>
+            {% for order in orders %}
+            <a href="{{ url_for('order_details', order_id=order.id) }}">
+                <div class="order">
+                    <li>{{ order.orderName }} - R${{ order.orderPrice }} - {{ order.orderStatus}} - {{ order.orderDate }}</li>
+                </div>
+            </a>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="product_name">Product Name:</label>
+        <input type="text" id="product_name" name="product_name" required><br><br>
+        
+        <label for="product_price">Product Price:</label>
+        <input type="text" id="product_price" name="product_price" required><br><br>
+
+        <label for="product_price">Product Inventory:</label>
+        <input type="text" id="product_inventory" name="product_inventory" required><br><br>
+
+        <label for="seller">Seller</label>
+        <input id="seller" name="seller" value="{{ username }}"><br><br>
+    
+        <label for="product_image">Product Image:</label>
+        <input type="file" id="product_image" name="product_image" accept="image/*" required><br><br>
+    
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
